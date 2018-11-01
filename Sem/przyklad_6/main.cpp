@@ -1,57 +1,51 @@
-//Funkcje pomocnicze
+//Cechy iteratora
 
 #include <iostream>
 #include <vector>
+#include <list>
+#include <forward_list>
+#include <iterator>
+
+template <typename T>
+void fun_helper (T &it, std::random_access_iterator_tag){
+    std::cout<<"random access iterator tag"<<std::endl;
+}
+
+template <typename T>
+void fun_helper (T &it, std::bidirectional_iterator_tag){
+    std::cout<<"bidirectional iterator tag"<<std::endl;
+}
+
+
+template <typename T>
+void fun_helper (T &it, std::forward_iterator_tag){
+    std::cout<<"forward iterator tag"<<std::endl;
+}
+
+
+template <typename T>
+void fun_helper (T &it, std::input_iterator_tag){
+    std::cout<<"input iterator tag"<<std::endl;
+}
+
+
+template <typename T>
+void fun_helper (T &it, std::output_iterator_tag){
+    std::cout<<"output iterator tag"<<std::endl;
+}
+
+template <typename T>
+void fun (T it){
+    fun_helper(it, typename std::iterator_traits<T>::iterator_category());
+}
 
 int main(){
-    std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::vector<int>::iterator it;
-    std::vector<int>::iterator it2 = vec.begin();
 
-    std::cout<<"---Zawartość wektora: " <<std::endl;
-    for (it=vec.begin(); it<vec.end(); ++it)
-        std::cout<<*it<<" ";
-    std::cout<<std::endl<<std::endl;
+    fun(std::vector<int>::iterator());
+    fun(std::list<float>::iterator());
+    fun(std::forward_list<char>::iterator());
+    fun(std::istream_iterator<unsigned>());
+    fun(std::ostream_iterator<int>(std::cout));
 
-    std::cout<<"---Przesunięcie funkcją advance"<<std::endl;
-    it = vec.begin();
-    advance(it, 3);
-    std::cout<< "o 3: "<<*it << std::endl;
-
-    advance(it, 30);
-    std::cout<< "o 30: "<<*it << std::endl;
-    std::cout<<std::endl;
-
-    std::cout<<"---Wartość funkcji distance"<<std::endl;
-    it = vec.begin();
-    advance(it, 4);
-    std::cout<< distance(it, it2) << std::endl;
-    std::cout<< distance(it2, it) << std::endl;
-    advance(it, 100);
-    std::cout<< distance(it, it2) << std::endl;
-    std::cout<<std::endl;
-
-    std::cout<<"---Zamiana iter_swap"<<std::endl;
-    it = vec.begin();
-    advance(it, 4);
-    std::cout <<"wartości przed zamianą: it="<<*it<<" it2="<<*it2<<std::endl;
-    iter_swap(it, it2);
-    std::cout <<"wartości po zamianie: it="<<*it<<" it2="<<*it2<<std::endl;
-    std::cout<<"wartości w wektorze: "<<std::endl;
-    for (auto i : vec)
-        std::cout<<i<<" ";
-    std::cout<<std::endl<<std::endl;
-    iter_swap(it, it2);
-    
-
-    std::cout<<"---Funkcje next i prev"<<std::endl;
-    it = vec.begin();
-    advance(it, 4);
-    std::cout <<"wartość it przesuniete o 2 do przodu= "<<*next(it, 2)<<std::endl;
-    std::cout <<"wartość it przesuniete o 2 do tyłu= "<<*prev(it, 2)<<std::endl;
-    std::cout <<"wartość it="<<*it<<std::endl;
-    
-
-    
     return 0;
 }
