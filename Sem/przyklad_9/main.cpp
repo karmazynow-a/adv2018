@@ -1,4 +1,4 @@
-//Definiowanie własnego iteratora
+//Definiowanie własnego iteratora w kontenerze
 
 #include <iostream>
 #include <iterator>
