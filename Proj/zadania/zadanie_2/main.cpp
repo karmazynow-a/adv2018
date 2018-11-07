@@ -5,6 +5,7 @@ Należy pamiętać o definiowaniu typów składowych i ich używaniu
 */
 
 #include <iostream>
+#include <list>
 #include "MyQueue.h"
 
 int main(void){
@@ -45,5 +46,14 @@ int main(void){
 
     q4.pop();
     std::cout << "Czy q3 jest teraz leksykograficznie większe?: " << std::boolalpha  << (q3 > q4 ? true : false )<< std::endl;
+
+    my_queue<char, std::list<char>> q5;
+    q5.push('l');
+    q5.push('i'); 
+    q5.push('s');
+    q5.push('t');
+    q5.push('a');
+
+    std::cout << q5;        
     return 0;
 }
