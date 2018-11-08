@@ -13,6 +13,7 @@ public:
     typedef Allocator allocator_type;
     typedef typename Allocator::value_type value_type; 
     typedef typename Allocator::reference reference;
+    typedef typename Allocator::pointer pointer;
     typedef typename Allocator::const_reference const_reference;
     typedef typename Allocator::difference_type difference_type;
     typedef typename Allocator::size_type size_type;
@@ -28,9 +29,9 @@ public:
         _alloc.deallocate(_values, _capacity);
     }
 
-    void insert(T newValue) {
+    void insert(value_type newValue) {
         if (_size < _capacity){
-            _values[_size] = newValue;
+            _alloc.construct(_values + _size, newValue);
             ++_size;
         }
     }
@@ -42,7 +43,7 @@ public:
         }
     }
 
-    int size() const { return _size; }
+    size_type size() const { return _size; }
 
     friend std::ostream &operator<<(std::ostream & o, NewContainer &n){
         for(int i=0; i<n._size; ++i)
@@ -52,10 +53,10 @@ public:
     }
 
 private:
-    T* _values;
-    unsigned int _size;
-    unsigned int _capacity;
-    Allocator _alloc;
+    pointer _values;
+    size_type _size;
+    size_type _capacity;
+    allocator_type _alloc;
 };
 
 
