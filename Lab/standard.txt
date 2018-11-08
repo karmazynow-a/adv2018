@@ -1,0 +1,4 @@
+http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3690.pdf
+
+kontenery - rodział 23
+iteratory - rozdział 24

@@ -1,0 +1,9 @@
+Jak używać cmake?
+
+>jeśli korzystasz z komputera na wydziale, zaloguj się na taurusa
+>w folderze, w którym jest plik CMakeLists.txt wpisz komende cmake .
+>program CMake wygeneruje Makefile, który możesz używać jak standardowy Makefile
+
+>jeśli dodajesz jakiś plik .cpp dodaj go w liście add_executeable, np:
+	add_executable(zad main.cpp nowy_dodany_plik.cpp)
+ z plikami .h nie musisz tak robić
