@@ -1,10 +1,11 @@
 /*
-Zadanie polega na napisaniu kontenera, który działa jak zbiór (set)
-Ma zawierać zaimplementowane metody, które są użyte w main
+Zadanie polega na napisaniu kontenera, który pozwala na wywołanie metod w funkcji main, czyli:
+insert - dodającej element, size - zwracającej rozmiar, empty - zwracającej czy kontener jest pusty, 
+clear - usuwający wszystkie elementy, swap - zamieniającej zawartości dwóch zbiorów
 
 Do realizacji nie można użyć żadnego kontenera, ani funkcji new i delete - należy posługiwać się std::allocator, także przy inicjalizacji
 Pamięć może być zorganizowana w spobób ciągły lub nie - wedle preferencji
-Należy pamiętać o definiowaniu typów składowych i ich używaniu
+Należy pamiętać o definiowaniu typów składowych i używaniu ich 
 */
 
 #include <iostream>
