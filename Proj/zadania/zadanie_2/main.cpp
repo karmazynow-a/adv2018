@@ -57,3 +57,19 @@ int main(void){
     std::cout << q5;        
     return 0;
 }
+
+/*
+Kolejka: 0 2 4 6 8 10 12 14 16 18 
+Po usunięciu: 2 4 6 8 10 12 14 16 18 
+Po dodaniu nowego elementu: 2 4 6 8 10 12 14 16 18 5 
+Czy jest pusta? false
+Pierwszy element 2
+Ostatni element 5
+Druga kolejka: 12 14 16 18 5 
+Po zamianie: 
+Pierwsza kolejka: 12 14 16 18 5 
+Druga kolejka: 2 4 6 8 10 12 14 16 18 5 
+Czy q3 i q4 są równe?: true
+Czy q3 jest teraz leksykograficznie większe?: false
+l i s t a 
+*/
