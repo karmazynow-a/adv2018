@@ -4,4 +4,4 @@ project (zadanie_4)
 
 add_executable(zadanie_4 main.cpp)
 add_compile_options( -Wall -g )
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-std=c++11") 
